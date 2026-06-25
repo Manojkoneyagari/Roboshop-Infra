@@ -3,6 +3,6 @@ resource "aws_ssm_parameter" "sg_names" {
   name        = "/${var.instances[count.index]}/${var.project}/${var.environment}/sg_id"
   description = " storing ${var.instances[count.index]} id in SSM from sg module"
   type        = "String"
-  value       = module.sg[count.index].sg_ids
+  value       = module.sg.sg_ids[count.index]
 
 }

@@ -39,7 +39,7 @@ data "aws_ssm_parameter" "backend_alb_sg" {
 }
 
 data "aws_ssm_parameter" "frontend_sg" {
-  name = "/cart/${var.project}/${var.environment}/sg_id"
+  name = "/frontend/${var.project}/${var.environment}/sg_id"
 }
 
 data "aws_ssm_parameter" "frontend_alb_sg" {

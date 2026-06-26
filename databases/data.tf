@@ -34,3 +34,7 @@ data "aws_ssm_parameter" "database_subnet_ids" {
 data "aws_ssm_parameter" "mongodb_sg" {
   name = "/mongodb/${var.project}/${var.environment}/sg_id"
 }
+
+data "aws_key_pair" "deployer" {
+  key_name = "deployer-key"
+}

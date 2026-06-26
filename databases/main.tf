@@ -3,7 +3,8 @@ resource "aws_instance" "mongodb" {
   instance_type          = var.instance_type
   vpc_security_group_ids = [local.mongodb_sg_id]
   subnet_id              = local.database_subnet_id
-  key_name = aws_key_pair.deployer.key_name
+  #key_name = aws_key_pair.deployer.key_name
+  key_name = data.aws_key_pair.deployer.key_name
 
 
 
@@ -38,9 +39,10 @@ resource "terraform_data" "mongodb" {
   }
   
 }
-
+/* 
   resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
   public_key = file("~/.ssh/id_rsa.pub")
   #public_key = file(var.pub_key_path)
 }
+ */

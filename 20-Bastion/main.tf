@@ -15,6 +15,13 @@ resource "aws_instance" "bastion" {
     volume_type = "gp3"
   }
 
+    connection {
+    type        = "ssh"
+    host        = aws_instance.bastion.public_ip
+    user        = "ubuntu"
+    private_key = file("~/.ssh/id_rsa")
+  }
+
   provisioner "file" {
       source      = "~/.ssh/id_rsa"
       destination = "/home/ubuntu/.ssh/id_rsa"

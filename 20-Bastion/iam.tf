@@ -17,10 +17,10 @@ resource "aws_iam_role" "bastion_role" {
     ]
   })
 
-  tags = merge (
+  tags = merge(
     local.common_tags,
     {
-        Name= "${local.common_name}-bastion_role"
+      Name = "${local.common_name}-bastion_role"
     }
   )
 }

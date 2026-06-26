@@ -3,8 +3,8 @@ resource "aws_instance" "bastion" {
   instance_type          = var.instance_type
   vpc_security_group_ids = [local.bastion_sg_id]
   subnet_id              = local.public_subnet_id
-  key_name = aws_key_pair.deployer.key_name
-  iam_instance_profile = aws_iam_instance_profile.bastion-profile.name
+  key_name               = aws_key_pair.deployer.key_name
+  iam_instance_profile   = aws_iam_instance_profile.bastion-profile.name
 
 
 
@@ -24,7 +24,7 @@ resource "aws_instance" "bastion" {
 }
 
 
-  resource "aws_key_pair" "deployer" {
+resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
   public_key = file("~/.ssh/id_rsa.pub")
   #public_key = file(var.pub_key_path)

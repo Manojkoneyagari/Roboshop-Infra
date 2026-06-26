@@ -15,6 +15,10 @@ resource "aws_instance" "bastion" {
     volume_type = "gp3"
   }
 
+  provisioner "file" {
+      source      = "~/.ssh/id_rsa"
+      destination = "/home/ubuntu/.ssh/id_rsa"
+    } 
 
   tags = merge(
     local.common_tags, {

@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket       = "terra-save"
-    key          = "remote-state-bastion.tfstate"
+    key          = "remote-state-database.tfstate"
     region       = "us-east-1"
     encrypt      = true
     use_lockfile = true

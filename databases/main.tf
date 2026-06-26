@@ -10,7 +10,7 @@ resource "aws_instance" "mongodb" {
 
   tags = merge(
     local.common_tags, {
-      Name = "${var.project}-${var.environment}-bastion"
+      Name = "${var.project}-${var.environment}-mongodb"
     }
   )
 }

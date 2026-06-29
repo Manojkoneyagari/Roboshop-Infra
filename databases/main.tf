@@ -24,6 +24,7 @@ resource "terraform_data" "mongodb" {
     host        = aws_instance.mongodb.private_ip
     user        = "ubuntu"
     private_key = file("/home/ubuntu/.ssh/id_rsa")
+    host_key = null
   }
 
   provisioner "file" {
@@ -73,6 +74,7 @@ resource "terraform_data" "redis" {
     host        = aws_instance.redis.private_ip
     user        = "ubuntu"
     private_key = file("/home/ubuntu/.ssh/id_rsa")
+    host_key = null
   }
 
   provisioner "file" {
@@ -115,6 +117,7 @@ resource "terraform_data" "rabbitmq" {
     host        = aws_instance.rabbitmq.private_ip
     user        = "ubuntu"
     private_key = file("/home/ubuntu/.ssh/id_rsa")
+    host_key = null
   }
 
   provisioner "file" {
@@ -132,7 +135,7 @@ resource "terraform_data" "rabbitmq" {
 }
 
 resource "aws_instance" "mysql" {
-  ami                    = local.ami_id
+  ami                    = ami-05cf1e9f73fbad2e2
   instance_type          = var.instance_type
   vpc_security_group_ids = [local.mysql_sg_id]
   subnet_id              = local.database_subnet_id
@@ -157,12 +160,14 @@ resource "terraform_data" "mysql" {
     host        = aws_instance.mysql.private_ip
     user        = "ubuntu"
     private_key = file("/home/ubuntu/.ssh/id_rsa")
+    host_key = null
   }
 
   provisioner "file" {
     source      = "ansiblescript.sh"
     destination = "/tmp/ansiblescript.sh"
   }
+
 
   provisioner "remote-exec" {
     inline = [

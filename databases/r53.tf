@@ -1,5 +1,5 @@
 resource "aws_route53_record" "mongodb" {
-  zone_id  = local.zone_id
+  zone_id = local.zone_id
 
   name = "mongodb.${local.domain_name}"
   type = "A"
@@ -10,7 +10,7 @@ resource "aws_route53_record" "mongodb" {
 
 
 resource "aws_route53_record" "redis" {
-  zone_id  = local.zone_id
+  zone_id = local.zone_id
 
   name = "redis.${local.domain_name}"
   type = "A"
@@ -20,7 +20,7 @@ resource "aws_route53_record" "redis" {
 }
 
 resource "aws_route53_record" "rabbitmq" {
-  zone_id  = local.zone_id
+  zone_id = local.zone_id
 
   name = "rabbitmq.${local.domain_name}"
   type = "A"
@@ -30,7 +30,7 @@ resource "aws_route53_record" "rabbitmq" {
 }
 
 resource "aws_route53_record" "mysql" {
-  zone_id  = local.zone_id
+  zone_id = local.zone_id
 
   name = "mysql.${local.domain_name}"
   type = "A"

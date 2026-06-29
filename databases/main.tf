@@ -135,7 +135,7 @@ resource "terraform_data" "rabbitmq" {
 }
 
 resource "aws_instance" "mysql" {
-  ami                    = ami-05cf1e9f73fbad2e2
+  ami                    = "ami-05cf1e9f73fbad2e2"
   instance_type          = var.instance_type
   vpc_security_group_ids = [local.mysql_sg_id]
   subnet_id              = local.database_subnet_id

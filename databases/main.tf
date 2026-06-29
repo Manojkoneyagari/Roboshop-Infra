@@ -141,6 +141,7 @@ resource "aws_instance" "mysql" {
   subnet_id              = local.database_subnet_id
   #key_name = aws_key_pair.deployer.key_name
   key_name = data.aws_key_pair.deployer.key_name
+  iam_instance_profile = aws_iam_instance_profile.mysql_profile.name
 
 
 

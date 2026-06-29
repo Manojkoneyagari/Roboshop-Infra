@@ -35,6 +35,20 @@ data "aws_ssm_parameter" "mongodb_sg" {
   name = "/mongodb/${var.project}/${var.environment}/sg_id"
 }
 
+data "aws_ssm_parameter" "redis_sg" {
+  name = "/redis/${var.project}/${var.environment}/sg_id"
+}
+
+data "aws_ssm_parameter" "rabbitmq_sg" {
+  name = "/rabbitmq/${var.project}/${var.environment}/sg_id"
+}
+
+data "aws_ssm_parameter" "mysql_sg" {
+  name = "/mysql/${var.project}/${var.environment}/sg_id"
+}
+
+
+
 data "aws_key_pair" "deployer" {
   key_name = "deployer-key"
 }

@@ -1,5 +1,5 @@
 resource "aws_lb" "backend_alb" {
-  name               = "${var.project}-${var.environment}-backend_alb"
+  name               = "${var.project}-${var.environment}-backend-alb"
   internal           = true
   load_balancer_type = "application"
   security_groups    = [local.backend_alb-sg-id]
@@ -22,7 +22,7 @@ resource "aws_lb_listener" "http" {
 
 
   default_action {
-    type             = "fixed response"
+    type             = "fixed-response"
 
     fixed_response {
 

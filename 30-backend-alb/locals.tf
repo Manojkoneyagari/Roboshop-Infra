@@ -3,7 +3,7 @@ locals {
   ami_id           = data.aws_ssm_parameter.vpc_id
   vpc_id           = data.aws_ssm_parameter.vpc_id.value
   private_subnet_ids = split(",", data.aws_ssm_parameter.private_subnet_ids.value)
-  backend_alb-sg-id= data.aws_ssm_parameter.backend_alb_sg
+  backend_alb-sg-id= data.aws_ssm_parameter.backend_alb_sg.value
 
 
   common_tags = {

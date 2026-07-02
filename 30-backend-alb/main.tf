@@ -35,7 +35,7 @@ resource "aws_lb_listener" "http" {
 
 resource "aws_route53_record" "backend_alb" {
   zone_id = local.zone_id
-  name    = "backend_alb.${local.domain_name}" # The sub-domain you want to use
+  name    = "*.backend_alb.${local.domain_name}" # The sub-domain you want to use
   type    = "A"
 
   alias {

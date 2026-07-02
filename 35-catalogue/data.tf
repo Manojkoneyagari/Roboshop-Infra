@@ -35,7 +35,14 @@ data "aws_ssm_parameter" "catalogue_sg" {
   name = "/catalogue/${var.project}/${var.environment}/sg_id"
 }
 
+data "aws_ssm_parameter" "backend_alb_listener" {
+  name = "${var.project}/${var.environment}/backend_alb_listener"
+}
 
+data "aws_route53_zone" "backend" {
+  name         = "manojkoney.store" # Replace with your registered domain name
+  private_zone = false
+}
 
 
 data "aws_key_pair" "deployer" {
